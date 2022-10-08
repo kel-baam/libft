@@ -20,9 +20,4 @@ int toupper(int c)
 	else
 		return (c);
 }
-int main()
-{
-	int a;
-	a= toupper(77);
-	printf("%c",a);
-}
+

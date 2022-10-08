@@ -20,9 +20,4 @@ int ft_isalnum (int n)
 }
 
 
-int main()
-{
-	int a;
-	a = ft_isalnum(57);
-	printf("%d", a);
-}
+

@@ -1,4 +1,4 @@
-NAME= libft.h
+NAME= libft.a
 SUB = ft_isalpha.c\
 	  ft_isdigit.c\
 	  ft_isalnum.c\
@@ -23,16 +23,22 @@ OBJ= ft_isalpha.o\
 	 ft_isascii.o\
 	 ft_isprint.o\
 	 ft_memcmp.o\
-	 ft-memset.o\
+	 ft_memset.o\
 	 ft_strchr.o\
 	 ft_strlen.o\
 	 ft_tolower.o\
 	 ft_toupper.o\
-	 ft_strncmp\
+	 ft_strncmp.o\
 
 
-all: $(SUB)
+all: $(NAME)
+
+$(NAME):
 	gcc -Wall -Wextra -Werror -c $(SUB)
-
+	ar -rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 clean:
 	rm -f $(OBJ)
+fclean: clean
+	rm -f $(NAME)
+re: fclean all

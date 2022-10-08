@@ -25,11 +25,3 @@ void * ft_memset(void *b, int c, size_t len)
 
 }
 
-int main()
-{ 
-	char str[]="hello";
-
-    printf("%s\n",ft_memset(str,'a',8));
-	//printf("%s",memset(str,'a',8));
-
-}

@@ -22,11 +22,3 @@ void ft_bzero(void *s, size_t n)
 	    i++;
 	}
 }
-
-int main()
-{
-	char str[5] = "hello";
-
-	ft_bzero (str,2);
-	printf("%s", str);
-}

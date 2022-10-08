@@ -19,10 +19,3 @@
 		i++;
 	return (i);
 }
-int main()
-{
-	int a;
-	char str[] = "kawtar";
-	a= ft_strlen(str);
-	printf("%d",a);
-}

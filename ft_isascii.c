@@ -18,9 +18,3 @@ int ft_isascii(int c)
 	return (0);
 }
 
-int main()
-{
-	int a;
-	a= ft_isascii(10);
-	printf("%d",a);
-}

@@ -24,11 +24,3 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
 	((unsigned char*)dst)[i]='\0';
 	return (dst);
 }
-int main()
-{
-	char str[10] = "HELLO";
-	char dest[10]="WORLD";
-	printf("%s\n",ft_memcpy(dest,str,0));
-	printf("%s",memcpy(dest,str,0));
-		}
-

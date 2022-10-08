@@ -19,10 +19,3 @@ int ft_isdigit(int n)
 		return (0);
 }
 
-int main()
-{
-	int a;
-	a=ft_isdigit('=');
-	printf("%d",a);
-}
-

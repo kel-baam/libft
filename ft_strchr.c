@@ -16,13 +16,3 @@ char *ft_strchr(const char *s, int c)
         return (char*)(&s[i]);
     return (NULL);
 }
-
-
-int main()
-{
-    char str[7] = "kaoutar";
-    int c = 'o';
-
-    printf("|%s|", strchr(str, c));
-    return 0;
-}

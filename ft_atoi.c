@@ -41,15 +41,3 @@
 		
 	return (result * sign);
 }
-#include <stdio.h>
-int main()
-{
-	// int a;
-	char *str = "100";
-
-	printf("atoi: %d\n",atoi(str));
-
-	printf("ft_atoi: %d\n",ft_atoi(str));
-	// printf("%d",a);
-
-}

@@ -19,10 +19,3 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 	i++;
 	return (((unsigned char*)s1)[i]-((unsigned char*)s2)[i]);
 }
-int main()
-{
-	char str[]="kk";
-	char str2[]="kk";
-	printf("%d\n",ft_memcmp(str,str2,2));
-	printf("%d",memcmp(str,str2,2));
-}
