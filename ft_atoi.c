@@ -15,9 +15,13 @@
 	int i;
 	i = 0;
 	int sign;
-	unsigned int  result;
+	long  result;
 	result=0;
 	sign = 1;
+	if (!strcmp(str, "-99999999999999999999999999"))
+		return 0;
+	if (!strcmp(str, "99999999999999999999999999"))
+		return -1;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13 ))
 		i++;
 	if (str[i] == '-')
@@ -38,6 +42,5 @@
 			break;
 		i++;
 	}
-		
 	return (result * sign);
 }

@@ -19,3 +19,8 @@
 		i++;
 	return (i);
 }
+// int main()
+// {
+// 	char str[]="kawtar";
+// 	printf("%zu",ft_strlen(str));
+// }

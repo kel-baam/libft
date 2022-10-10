@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 14:07:46 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/06 14:24:42 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/09 14:23:43 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/09 14:23:47 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-int ft_toupper(int c)
-{   
-	if( c >= 'a' && c <= 'z')
-	{
-		c = c - 32;
-	    return (c);
-	}
-	else
-		return (c);
-}
 
+#include "libft.h"
+void *ft_memchr(const void *str, int c, size_t n)
+{
+    size_t i;
+    i=0;
+    while(((unsigned char *)str)[i] && i < n)
+    {
+        if(((unsigned char *)str)[i] == ((unsigned char )c))
+        return  (((unsigned char*)&str[i]));
+        i++;
+
+    }
+    if ((unsigned char)c == '\0')
+        return (unsigned char*)(&str[i]);
+    return 0;
+}
