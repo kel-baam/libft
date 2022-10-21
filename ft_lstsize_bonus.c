@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 21:21:11 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/11 11:19:55 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/17 17:23:33 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/17 17:29:26 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	size_t	j;
+	int	len;
 
-	j = ft_strlen(src);
-	i = 0;
-	if (size != 0)
+	len = 0;
+	while (lst)
 	{
-		while (src[i] && i < size - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		len++;
+		lst = lst->next;
 	}
-	return (j);
+	return (len);
 }
-//  int main()
-//   {
-//     char str[]= "kkkk";
-//     char dst[]= "ttt";
-//     //printf("%lu\n",ft_strlcpy(dst,str,2));
-//     printf("%lu\n",ft_strlcpy(NULL,NULL,2));
-//     // printf("%s",dst);
+// int main()
+// {
+//     t_list *head = NULL;
+//     for (int i = 0; i < 1000; i++)
+//     {
+//         char *tmp = "hello";
+//         ft_lstadd_front(&head, ft_lstnew(tmp));
+//     }
+//     printf("%d\n", ft_lstsize(head));
+//     return (0);
 // }

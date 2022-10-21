@@ -6,18 +6,17 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:15:36 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/08 11:20:46 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:03:13 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
- int ft_isalpha(int c)
-{
-	int i;
 
-	i=0;
-	if ((c >= 'a' && c <= 'z') || (c>='A' && c<= 'Z'))
+int	ft_isalpha(int c)
+{
+	int	i;
+
+	i = 0;
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
-}
- 
-			
+}		

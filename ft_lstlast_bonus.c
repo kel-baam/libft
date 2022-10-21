@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/17 17:43:52 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/17 17:44:13 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (src == NULL && dst == NULL)
+	if (!lst)
 		return (NULL);
-	if (src < dst)
+	while (lst->next)
 	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		lst = lst->next;
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	return (lst);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// {
+//    t_list *head = NULL;
+
+//     for (int i = 0; i < 5; i++)
+//     {
+//         int *tmp = malloc(sizeof(int));
+//         *tmp = i;
+//         ft_lstadd_back(&head, ft_lstnew(tmp));
+//     }
+
+//     t_list *last = ft_lstlast(head);
+
+//     printf("%d\n", *((int*)last->content));
+//     return 0;
+// }

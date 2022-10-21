@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/17 17:30:03 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/17 17:32:36 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (src == NULL && dst == NULL)
-		return (NULL);
-	if (src < dst)
+	if (lst != NULL)
 	{
-		while (len)
+		if (*lst == NULL)
+			*lst = new;
+		else
 		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
+			new->next = *lst;
+			*lst = new;
 		}
-		return (dst);
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// {
+// t_list *head = NULL;
+
+// t_list *newlst = ft_lstnew("hello");
+// t_list *newlsth = ft_lstnew("hell");
+// ft_lstadd_front(&head,newlsth);
+// printf("%s",(char*)head ->content);
+// }

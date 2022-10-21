@@ -6,13 +6,12 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:37:19 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/08 11:37:22 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:04:03 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
-int ft_isdigit(int n)
+
+int	ft_isdigit(int n)
 {
 	return (n >= '0' && n <= '9');
 }
-

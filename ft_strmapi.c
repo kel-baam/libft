@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/15 19:29:52 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/16 17:26:51 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	unsigned int	i;
+	char			*allocation;
+	int				len_s;
 
 	i = 0;
-	if (src == NULL && dst == NULL)
+	if (!s || !f)
+		return (0);
+	len_s = ft_strlen(s);
+	allocation = (char *)malloc((len_s + 1) * sizeof(char));
+	if (!allocation)
 		return (NULL);
-	if (src < dst)
+	while (s[i])
 	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		allocation[i] = (*f)(i, s[i]);
+		i++;
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	allocation[i] = '\0';
+	return (allocation);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// { 
+//     char s[]="KDFGytt";
+//     printf("%s",ft_strmapi(s,ft_tolower));
+// }

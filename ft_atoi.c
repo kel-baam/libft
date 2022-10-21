@@ -10,37 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
- int ft_atoi(const char *str)
+
+int	convert_to_int(const char *str, int i)
 {
-	int i;
-	i = 0;
-	int sign;
-	long  result;
-	result=0;
+	int	result;
+
+	result = 0;
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			result = result * 10 + (str[i] - '0');
+		}
+		else
+			break ;
+		i++;
+	}
+	return (result);
+}
+
+int	ft_atoi(const char *str)
+{
+	int		i;
+	int		sign;
+	int		res;
+
 	sign = 1;
-	if (!strcmp(str, "-99999999999999999999999999"))
-		return 0;
-	if (!strcmp(str, "99999999999999999999999999"))
-		return -1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13 ))
+	i = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
 		i++;
 		sign = -1;
 	}
-	else
-		if ( str[i]=='+')
+	else if (str[i] == '+')
 			i++;
-	while (str[i] )
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - '0'); 
-		}
-		else
-			break;
-		i++;
-	}
-	return (result * sign);
+	res = convert_to_int(str, i);
+	return (res * sign);
 }
+//int main()
+//{
+	//printf("%d",atoi("42949672952222123123 "));
+
+//printf("%d\n",ft_atoi("42949672952222123123"));
+//printf("%d\n",atoi("18446744073709551617"));
+
+//max long long
+//}

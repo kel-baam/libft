@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/14 12:18:00 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/16 16:33:25 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (src == NULL && dst == NULL)
-		return (NULL);
-	if (src < dst)
+	if (nb == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (nb < 0)
 	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		write(fd, "-", 1);
+		ft_putnbr_fd((-1 * nb), fd);
+	}
+	else if (nb >= 0 && nb <= 9)
+	{
+		nb = nb +48;
+		write(fd, &nb, 1);
 	}
 	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// {
+//     int str=123456;
+//     int fd =open("tst.txt",O_WRONLY);
+//     ft_putnbr_fd(str,fd);
+// }

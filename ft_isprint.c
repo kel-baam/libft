@@ -6,13 +6,12 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:18:34 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/06 13:19:05 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:06:10 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include<ctype.h>
-int ft_isprint(int n)
-{
-	return (n >= 32 && n < 127); 
-}
 
+int	ft_isprint(int n)
+{
+	return (n >= 32 && n < 127);
+}

@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/16 17:27:41 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/16 17:38:42 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	int		i;
+	int		j;
+	char	*p;
 
 	i = 0;
-	if (src == NULL && dst == NULL)
+	if (!s1 || !s2)
 		return (NULL);
-	if (src < dst)
+	p = (char *)malloc((strlen(s1) + strlen(s2) + 1) * sizeof(char));
+	if (!p)
+		return (NULL);
+	while (s1[i])
 	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		p[i] = s1[i];
+		i++;
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	j = 0;
+	while (s2[j])
+	{
+		p[i] = s2[j];
+		i++;
+		j++;
+	}
+	p[i] = '\0';
+	return (p);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// {
+//     char s1[]= "hellokk";
+//     char s2[]="world";
+//     printf("%s",ft_strjoin(s1+6,s1));
+// }

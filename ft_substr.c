@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/12 15:13:47 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/16 16:26:23 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
+	size_t			i;
+	char			*p;
+	unsigned char	size;
 
 	i = 0;
-	if (src == NULL && dst == NULL)
+	if (!s)
 		return (NULL);
-	if (src < dst)
+	p = malloc((len + 1) * sizeof(char));
+	if (!p)
+		return (NULL);
+	size = len + start;
+	if (start >= ft_strlen(s))
 	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		*p = 0;
+		return (p);
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	while (s[i] && start < size)
+	{
+		p[i] = s[start++];
+		i++;
+	}
+	p[i] = '\0';
+	return (p);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// {
+//     char *str="kawtaruuuuuuuuu";
+//     printf("%s",ft_substr(str,3,7)); 
+// }

@@ -1,4 +1,5 @@
-NAME= libft.a
+NAME = libft.a
+
 SUB = ft_isalpha.c\
 	  ft_isdigit.c\
 	  ft_isalnum.c\
@@ -20,7 +21,19 @@ SUB = ft_isalpha.c\
 	  ft_strnstr.c\
 	  ft_calloc.c\
 	  ft_memmove.c\
-	  ft_strlcpy.c
+	  ft_strlcpy.c\
+	  ft_strlcat.c\
+	  ft_substr.c\
+	  ft_strjoin.c\
+	  ft_strtrim.c\
+	  ft_putchar_fd.c\
+	  ft_putstr_fd.c\
+	  ft_putnbr_fd.c\
+	  ft_putendl_fd.c\
+	  ft_strmapi.c\
+	   ft_striteri.c\
+	  ft_iatoi.c\
+	  ft_split.c
 
 
 OBJ= ft_isalpha.o\
@@ -44,17 +57,42 @@ OBJ= ft_isalpha.o\
 	 ft_strnstr.o\
 	 ft_calloc.o\
 	 ft_memmove.o\
-	 ft_strlcpy.o
+	 ft_strlcpy.o\
+	 ft_strlcat.o\
+	 ft_substr.o\
+	 ft_strjoin.o\
+	 ft_strtrim.o\
+	 ft_putchar_fd.o\
+	 ft_putstr_fd.o\
+	 ft_putnbr_fd.o\
+	 ft_putendl_fd.o\
+	 ft_strmapi.o\
+	 ft_striteri.o\
+	 ft_iatoi.o\
+	 ft_split.o
 
+BONUS = ft_lstnew_bonus.c\
+		ft_lstadd_front_bonus.c\
+		ft_lstsize_bonus.c\
+		ft_lstlast_bonus.c\
+		ft_lstadd_back_bonus.c
 
-all: $(NAME)
+OBJ_BONUS = ft_lstnew_bonus.o\
+		    ft_lstadd_front_bonus.o\
+		    ft_lstsize_bonus.o\
+		    ft_lstlast_bonus.o\
+		    ft_lstadd_back_bonus.o
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c $(SUB)
+all : $(NAME)
+
+$(NAME) :
+	cc -Wall -Wextra -Werror -c $(SUB)
 	ar -rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-clean:
+
+clean :
 	rm -f $(OBJ)
-fclean: clean
+
+fclean : clean
 	rm -f $(NAME)
-re: fclean all
+
+re : fclean all

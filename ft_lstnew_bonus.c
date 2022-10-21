@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:30:04 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/17 17:50:03 by kel-baam         ###   ########.fr       */
+/*   Created: 2022/10/17 17:11:33 by kel-baam          #+#    #+#             */
+/*   Updated: 2022/10/21 13:11:18 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*elem;
 
-	i = 0;
-	if (src == NULL && dst == NULL)
+	elem = (t_list *)malloc(sizeof(t_list));
+	if (!elem)
 		return (NULL);
-	if (src < dst)
-	{
-		while (len)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
-	}
-	else
-		ft_memcpy(dst, src, len);
-	return (0);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }
-//  int main()
-//  {
-//     char str[]="ayoub";
-//     printf("|%s|\n",memmove(str,NULL ,3));
-//     printf("%s",ft_memmove(str+2,str  ,3));
-//  }
+// int main()
+// { 
+//     t_list *a;
+//     char *string = "15dshfdjsh";
+//     a = ft_lstnew(string);
+//     //printf("%s", s);
+//     printf("%s",(a->content));
+//      }
