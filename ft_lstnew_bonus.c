@@ -22,11 +22,3 @@ t_list	*ft_lstnew(void *content)
 	elem->next = NULL;
 	return (elem);
 }
-// int main()
-// { 
-//     t_list *a;
-//     char *string = "15dshfdjsh";
-//     a = ft_lstnew(string);
-//     //printf("%s", s);
-//     printf("%s",(a->content));
-//      }

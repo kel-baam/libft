@@ -6,14 +6,14 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:30:42 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/10 22:50:33 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:09:25 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*s2 ;
+	unsigned char	*s2;
 	size_t			i;
 
 	i = 0;

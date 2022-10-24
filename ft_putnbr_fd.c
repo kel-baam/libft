@@ -6,34 +6,28 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:18:00 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/16 16:33:25 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:03:29 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (nb == -2147483648)
+	if (n == -2147483648)
 		write(fd, "-2147483648", 11);
-	else if (nb < 0)
+	else if (n < 0)
 	{
 		write(fd, "-", 1);
-		ft_putnbr_fd((-1 * nb), fd);
+		ft_putnbr_fd((-1 * n), fd);
 	}
-	else if (nb >= 0 && nb <= 9)
+	else if (n >= 0 && n <= 9)
 	{
-		nb = nb +48;
-		write(fd, &nb, 1);
+		n = n + 48;
+		write(fd, &n, 1);
 	}
 	else
 	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 }
-// int main()
-// {
-//     int str=123456;
-//     int fd =open("tst.txt",O_WRONLY);
-//     ft_putnbr_fd(str,fd);
-// }

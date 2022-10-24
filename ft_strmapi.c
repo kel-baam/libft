@@ -6,7 +6,7 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 19:29:52 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/16 17:26:51 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:07:55 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -32,8 +32,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	allocation[i] = '\0';
 	return (allocation);
 }
-// int main()
-// { 
-//     char s[]="KDFGytt";
-//     printf("%s",ft_strmapi(s,ft_tolower));
-// }

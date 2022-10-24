@@ -6,7 +6,7 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 19:51:34 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/10 23:51:05 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:10:27 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,15 +20,9 @@ char	*ft_strrchr(const char *s, int c)
 		return (((char *)&s[j + 1]));
 	while (j >= 0)
 	{
-		if (s[j] == c)
+		if ((unsigned char)s[j] == (unsigned char)c)
 			return (((char *)&s[j]));
 		j--;
 	}
 	return (0);
 }
-// int main()
-// {
-//     char str[]="kwawtar\0";
-//     printf("%s\n\n",ft_strrchr(str,'\0'));
-//     printf("%s",strrchr(str,'\0')); 
-// }

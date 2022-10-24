@@ -6,12 +6,12 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 20:17:52 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/16 16:59:15 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:02:19 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	is_exist(char const *str, char const c)
+static int	is_exist(char const *str, char const c)
 {
 	while (*str)
 	{
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	if (!s1 || !set)
 		return (0);
-	end = ft_strlen (s1) - 1;
+	end = ft_strlen(s1) - 1;
 	while (s1[start] && is_exist(set, s1[start]))
 		start++;
 	while (end >= start && is_exist(set, s1[end]))
@@ -48,9 +48,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	returned_str[i] = '\0';
 	return (returned_str);
 }
-// int main()
-// {
-//     char str[]="   \t  \n\n \t\t  \n\n";
-//     char s[]=" \n\t";
-//     printf("%s",ft_strtrim(str,s));
-// }

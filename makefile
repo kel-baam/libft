@@ -1,4 +1,5 @@
 NAME = libft.a
+CC = cc
 
 SUB = ft_isalpha.c\
 	  ft_isdigit.c\
@@ -71,7 +72,7 @@ OBJ= ft_isalpha.o\
 	 ft_iatoi.o\
 	 ft_split.o
 
-BONUS = ft_lstnew_bonus.c\
+SUB_BONUS = ft_lstnew_bonus.c\
 		ft_lstadd_front_bonus.c\
 		ft_lstsize_bonus.c\
 		ft_lstlast_bonus.c\
@@ -85,14 +86,20 @@ OBJ_BONUS = ft_lstnew_bonus.o\
 
 all : $(NAME)
 
-$(NAME) :
-	cc -Wall -Wextra -Werror -c $(SUB)
+$(NAME) : 
+	CC -Wall -Wextra -Werror -c $(SUB)
 	ar -rc $(NAME) $(OBJ)
+
+bonus :
+	CC -Wall -Wextra -Werror -c $(SUB_BONUS)
+	ar -rc $(NAME) $(OBJ_BONUS)
+	
 
 clean :
 	rm -f $(OBJ)
+	rm -f $(OBJ_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
 
-re : fclean all
+re : fclean all 

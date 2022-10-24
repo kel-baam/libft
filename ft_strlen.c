@@ -6,7 +6,7 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:20:40 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/10 22:44:41 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:06:47 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,8 +20,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-// int main()
-// {
-// 	char str[]="kawtar";
-// 	printf("%zu",ft_strlen(str));
-// }

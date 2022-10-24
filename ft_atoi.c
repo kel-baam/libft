@@ -6,55 +6,37 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:47:32 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/06 17:57:55 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:09:09 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-
-int	convert_to_int(const char *str, int i)
-{
-	int	result;
-
-	result = 0;
-	while (str[i])
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - '0');
-		}
-		else
-			break ;
-		i++;
-	}
-	return (result);
-}
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	int		res;
+	int				i;
+	int				sign;
+	unsigned long	result;
 
 	sign = 1;
 	i = 0;
+	result = 0;
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
-		sign = -1;
 	}
-	else if (str[i] == '+')
-			i++;
-	res = convert_to_int(str, i);
-	return (res * sign);
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+		if (result > 9223372036854775807 && sign == -1)
+			return (0);
+		if (result >= 9223372036854775807 && sign == 1)
+			return (-1);
+	}
+	return (result * sign);
 }
-//int main()
-//{
-	//printf("%d",atoi("42949672952222123123 "));
-
-//printf("%d\n",ft_atoi("42949672952222123123"));
-//printf("%d\n",atoi("18446744073709551617"));
-
-//max long long
-//}

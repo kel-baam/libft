@@ -6,35 +6,29 @@
 /*   By: kel-baam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 23:16:25 by kel-baam          #+#    #+#             */
-/*   Updated: 2022/10/11 00:18:35 by kel-baam         ###   ########.fr       */
+/*   Updated: 2022/10/24 17:10:12 by kel-baam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	if (str == NULL && !len)
+	if (haystack == NULL && !len)
 		return (NULL);
-	while (str[i])
+	if (*needle == '\0')
+		return ((char *)(&haystack[i]));
+	while (haystack[i])
 	{
 		j = 0;
-		while (find[j] && str[i + j] == find[j] && i + j < len)
+		while (needle[j] && haystack[i + j] == needle[j] && i + j < len)
 			j++;
-		if (find[j] == '\0')
-			return ((char *)(&str[i]));
+		if (needle[j] == '\0')
+			return ((char *)(&haystack[i]));
 		i++;
 	}
 	return (0);
 }
-// int main()
-// {
-//     char *str="hello world jjjjj";
-//     char *find= "world";
-//     int size= 5;
-//     //printf("ft = |%s|\n",ft_strnstr(str,find,size));
-//       printf("str = |%s|",ft_strnstr(str,find,size));
-// }
