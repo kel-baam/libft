@@ -26,3 +26,9 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
+#include <stdio.h>
+int main()
+{
+	char s[]="AQWERTYUIOPASDFGHJKLZXCVBNMJK";
+	printf("%s",ft_strrchr(s,330));
+}
